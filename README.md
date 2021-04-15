@@ -34,9 +34,13 @@ sage: steinbergs, decompositions = steinberg_decompositions(bound=10, p=3)
 sage: decompositions[2,5]
 {-4: 1/2}
 sage: decompositions[5,7]
-{-5/2: 1, 1/8: -1/3, -4: -1/2}
+{-4: -1/2, -5/2: 1, 1/8: -1/3}
 ```
-This tells us that $[2] \wedge [5] = 1/2 [-4] \wedge [5]$ and $[5] \wedge [7] = [-5/2] \wedge [7/2] - 1/2 [-4] \wedge  [5]$. Observe that none of the numbers contains factors of $p=3$.
+This tells us that $[2] \wedge [5] = 1/2 [-4]\wedge [5]$ and 
+```math
+[5] \wedge [7] = -1/2 [-4] \wedge [5] - [-5/2] \wedge [7/2] - 1/3 [1/8] \wedge [7/8].
+```
+Observe that none of the numbers contains factors of $p=3$.
 
 ## 2. Computing approximations of DCW-coefficients
 
