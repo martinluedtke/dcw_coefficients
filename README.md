@@ -94,7 +94,7 @@ sage: undecided
 ```
 This tells us for example that the refined Chabauty-Kim set in depth 2 for $S = \{2,5\}$ and $p = 3$ contains an additional $S_3$-orbit of points besides $\{2,-1,1/2\}$, whereas it does not for $S = \{2,19\}$. In particular, the set cut out by the refined Selmer equation for $S = \{2,19\}$ coincides, up to $S_3$-orbits, exactly with the solutions of the $\{2,19\}$-unit equation.
 
-The results for the bound 500 (which are computed in under 10 minutes) are contained in the file `extrapoints.txt`.
+The results for the bound 500 (which are computed in under 10 minutes) are contained in the file `extrapoint500.txt`.
 
 See the comments in the SAGE code for more examples.
 
