@@ -3,29 +3,35 @@ Computing the localization map in the Chabauty-Kim method for the S-unit equatio
 
 SAGE code for the paper "Refined Selmer equations for the thrice-punctured line in depth two" [BBKLMQSX]
 
-Let $S$ be a finite set of primes and let $p$ be an auxiliary prime not contained in $S$. The Chabauty-Kim method is used to find functions on the $\mathbb{Z}\_p$-points of the thrice-punctured line which vanish on the $S$-integral points. To apply the method, it is central to understand the localization map in the Chabauty-Kim diagram. Dan-Cohen and Wewers [DCW] have shown that the localization map in depth two has the form
-```math
-\mathbb{A}^S \times \mathbb{A}^S \to \mathbb{A}^3
-```
-with a bilinear form as its third component. For $l$ and $q$ in $S$ we denote by $a_{l,q}$ the coefficient of $x_l y_q$ and refer to it as a "Dan-Cohen--Wewers (DCW) coefficient". It is an element of $\mathbb{Q}\_p$ and depends only on $l$ and $q$ (not on $S$).
+Let $S$ be a finite set of primes and let $p$ be an auxiliary prime not contained in $S$. The Chabauty-Kim method is used to find functions on the 
+$\mathbb{Z}\_p$-points of the thrice-punctured line which vanish on the $S$-integral points. To apply the method, it is central to understand the localization map in the Chabauty-Kim diagram. Dan-Cohen and Wewers [DCW] have shown that the localization map in depth two has the form
+$$ \mathbb{A}^S \times \mathbb{A}^S \to \mathbb{A}^3 $$
+with a bilinear form as its third component. For $l$ and $q$ in $S$ we denote by $a_{l,q}$ the coefficient of $x_l y_q$ and refer to it as a "Dan-Cohen--Wewers (DCW) coefficient". It is an element of 
+$\mathbb{Q}\_p$ and depends only on $l$ and $q$ (not on $S$).
 
 The DCW coefficients can be determined as follows. Let 
-```math
-E := \mathbb{Q} \otimes \mathbb{Z}\_{(p)}^\times.
-```
-This is an infinite-dimensional $\mathbb{Q}$-vector space with basis $1 \otimes l$ for $l$ a prime different from $p$. For $a \in \mathbb{Z}\_{(p)}^\times$, write $[a] := 1 \otimes a \in E$. An element of the form $[t] \wedge [1-t]$ with $t, 1-t \in \mathbb{Z}\_{(p)}^\times$ in the wedge square $E \wedge E$ is called a "Steinberg element". Every element of $E \wedge E$ can be written as a $\mathbb{Q}$-linear combination of Steinberg elements. Assume that we have such an expression for $[l] \wedge [q]$:
-```math
-[l] \wedge [q] = \sum c_i [t_i] \wedge [1-t_i].
-```
+$$ E := \mathbb{Q} \otimes \mathbb{Z}\_{(p)}^\times. $$
+This is an infinite-dimensional 
+$\mathbb{Q}$-vector space with basis $1 \otimes l$ for $l$ a prime different from $p$. For 
+$a \in \mathbb{Z}\_{(p)}^\times$, write $[a] := 1 \otimes a \in E$. 
+An element of the form $[t] \wedge [1-t]$ with $t, 1-t \in \mathbb{Z}\_{(p)}^\times$ 
+in the wedge square $E \wedge E$ is called a "Steinberg element". Every element of $E \wedge E$ can be written as a 
+$\mathbb{Q}$-
+linear combination of Steinberg elements. Assume that we have such an expression for $[l] \wedge [q]$:
+$$ [l] \wedge [q] = \sum c_i [t_i] \wedge [1-t_i]. $$
 Then we have the following formula for the DCW coefficient $a_{l,q}$:
-```math
-a_{l,q} = 1/2 (\sum_i c_i (-\Li_2(t_i)+\Li_2(1-t_i)) + \log(l)\log(q)),
-```
-where $\log$ and $\Li_2$ denote the $p$-adic logarithm and dilogarithm, respectively.
-
+$$ a_{l,q} = 1/2 (\sum_i c_i (-\mathrm{Li}\_2(t_i)+\mathrm{Li}\_2(1-t_i)) + \log(l)\log(q)), $$
+where $\log$ and 
+$\mathrm{Li}\_2$ 
+denote the $p$-adic logarithm and dilogarithm, respectively.
 
 ## 1. Computing Steinberg decompositions
-We implement an algorithm to compute expressions for $[l] \wedge [q]$ as $\mathbb{Q}$-linear combinations of Steinberg elements. The function `steinberg_decompositions(bound, p)` returns a dict `{(l,q): dec}` where `dec` is a decomposition of $[l] \wedge [q]$. The decomposition is encoded as a dict `{t_i: c_i}` where $c_i$ is the coefficient of the Steinberg element $[t_i] \wedge [1-t_i]$.
+We implement an algorithm to compute expressions for $[l] \wedge [q]$ as 
+$\mathbb{Q}$-
+linear combinations of Steinberg elements. The function `steinberg_decompositions(bound, p)` returns a dict `{(l,q): dec}` where `dec` is a decomposition of $[l] \wedge [q]$. The decomposition is encoded as a dict `{t_i: c_i}` where 
+$c\_i$ 
+is the coefficient of the Steinberg element 
+$[t\_i] \wedge [1-t\_i]$.
 
 ### Example
 Computing the decompositions of $[l] \wedge [q]$ with $l,q < 10$ for $p = 3$:
@@ -37,9 +43,8 @@ sage: decompositions[5,7]
 {-4: -1/2, -5/2: 1, 1/8: -1/3}
 ```
 This tells us that $[2] \wedge [5] = 1/2 [-4]\wedge [5]$ and 
-```math
-[5] \wedge [7] = -1/2 [-4] \wedge [5] - [-5/2] \wedge [7/2] - 1/3 [1/8] \wedge [7/8].
-```
+$$ [5] \wedge [7] = -1/2 [-4] \wedge [5] - [-5/2] \wedge [7/2] - 1/3 [1/8] \wedge [7/8].$$
+
 Observe that none of the numbers contains factors of $p=3$.
 
 ## 2. Computing approximations of DCW coefficients
@@ -70,15 +75,15 @@ sage: Qp(3,prec=prec)(dcw_coeffs[2,5])
 The result is a rational number which is guaranteed to be a correct approximation of $a_{l,q}$ up to O(3^prec). Note how the result in the example is more precise than with the function `steinberg_decompositions`.
 
 ## 3. Determining the size of Chabauty-Kim sets
-Let $S = \{l,q\}$ be a set of two primes which are both different from 3. The $S$-integral points of the thrice-punctured line carry an $S_3$-action generated by $z \mapsto 1-z$ and $z \mapsto 1/z$. In [BBKLMQSX] we show that each $S$-integral point has an $S_3$-translate which satisfies the refined  Selmer equation
-```math
-a_{l,q} \Li_2(z) = a_{q,l} = \Li_2(1-z).
-```
+Let $S = \\{l,q\\}$ be a set of two primes which are both different from 3. The $S$-integral points of the thrice-punctured line carry an $S_3$-action generated by $z \mapsto 1-z$ and $z \mapsto 1/z$. In [BBKLMQSX] we show that each $S$-integral point has an $S_3$-translate which satisfies the refined  Selmer equation
+$$ a\_{l,q} \mathrm{Li}\_2(z) = a_{q,l} \mathrm{Li}_2(1-z). $$
 
-The "refined Chabauty-Kim set" for $S$ in depth two for the auxiliary prime $p = 3$ consists of the $S_3$-orbits of all $\mathbb{Z}_3$-points of the thrice-punctured line satisfying this equation. We show that the refined Chabauty-Kim set contains the $S_3$-orbit $\{2,-1,1/2\}$ and at most one additional orbit. The additional orbit is present if and only if the valuations of the DCW coefficients satisfy
-```math
-\min(v_3(a_{l,q}, a_{q,l}) = v_3(\log(l)) + v_3(\log(q)).
-```
+The "refined Chabauty-Kim set" for $S$ in depth two for the auxiliary prime $p = 3$ consists of the $S_3$-orbits of all 
+$\mathbb{Z}\_3$-
+points of the thrice-punctured line satisfying this equation. We show that the refined Chabauty-Kim set contains the $S\_3$-orbit 
+$\\{2,-1,1/2\\}$ 
+and at most one additional orbit. The additional orbit is present if and only if the valuations of the DCW coefficients satisfy
+$$ \min(v_3(a_{l,q}, a_{q,l}) = v_3(\log(l)) + v_3(\log(q)). $$
 
 The function `check_extrapoint_criterion` determines all pairs of primes $l$, $q$ below a given bound where this condition is satisfied.
 
@@ -92,7 +97,16 @@ sage: noextrapoint
 sage: undecided
 []
 ```
-This tells us for example that the refined Chabauty-Kim set in depth 2 for $S = \{2,5\}$ and $p = 3$ contains an additional $S_3$-orbit of points besides $\{2,-1,1/2\}$, whereas it does not for $S = \{2,19\}$. In particular, the set cut out by the refined Selmer equation for $S = \{2,19\}$ coincides, up to $S_3$-orbits, exactly with the solutions of the $\{2,19\}$-unit equation.
+This tells us for example that the refined Chabauty-Kim set in depth 2 for 
+$S = \\{2,5\\}$
+and $p = 3$ contains an additional $S\_3$-orbit of points besides 
+$\\{2,-1,1/2\\}$,
+whereas it does not for 
+$S = \\{2,19\\}$.
+In particular, the set cut out by the refined Selmer equation for 
+$S = \\{2,19\\}$
+coincides, up to $S_3$-orbits, exactly with the solutions of the 
+$\\{2,19\\}$-unit equation.
 
 The results for the bound 500 (which are computed in under 10 minutes) are contained in the file `extrapoint500.txt`.
 
