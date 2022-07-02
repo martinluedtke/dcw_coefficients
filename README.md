@@ -83,7 +83,7 @@ $\mathbb{Z}\_3$-
 points of the thrice-punctured line satisfying this equation. We show that the refined Chabauty-Kim set contains the $S\_3$-orbit 
 $\\{2,-1,1/2\\}$ 
 and at most one additional orbit. The additional orbit is present if and only if the valuations of the DCW coefficients satisfy
-$$ \min(v_3(a_{l,q}, a_{q,l}) = v_3(\log(l)) + v_3(\log(q)). $$
+$$ \min(v_3(a_{l,q}), v_3(a_{q,l})) = v_3(\log(l)) + v_3(\log(q)). $$
 
 The function `check_extrapoint_criterion` determines all pairs of primes $l$, $q$ below a given bound where this condition is satisfied.
 
