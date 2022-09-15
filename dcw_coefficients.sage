@@ -292,7 +292,7 @@ def steinberg_decompositions(bound, p):
 
 def check_extrapoint_criterion(bound, prec):
     r"""
-    Check criterion from [BBKLMQSX, Prop. 3.12] characterizing for which primes $q > 3$
+    Check criterion from [BBKLMQSX] characterizing for which primes $q > 3$
     the refined CK-set in depth 2 for $S = \{2,q\}$ with $p=3$ contains a point besides $\{-1,2,1/2\}$.
 
     INPUT:
