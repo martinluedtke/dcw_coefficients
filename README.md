@@ -3,7 +3,7 @@ Computing the localization map in the Chabauty-Kim method for the S-unit equatio
 
 SAGE code for the paper "Refined Selmer equations for the thrice-punctured line in depth two" [BBKLMQSX]
 
-Let $S$ be a finite set of primes and let $p$ be an auxiliary prime not contained in $S$. The Chabauty-Kim method is used to find functions on the 
+Let $S$ be a finite set of primes and let $p$ be an odd auxiliary prime not contained in $S$. The Chabauty-Kim method is used to find functions on the 
 $\mathbb{Z}\_p$-points of the thrice-punctured line which vanish on the $S$-integral points. To apply the method, it is central to understand the localization map in the Chabauty-Kim diagram. Dan-Cohen and Wewers [DCW] have shown that the localization map in depth two has the form
 
 $$ \mathbb{A}^S \times \mathbb{A}^S \to \mathbb{A}^3 $$
