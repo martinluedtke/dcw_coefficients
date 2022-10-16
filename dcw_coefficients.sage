@@ -608,7 +608,7 @@ def modified_dcw(l, q, p):
     z = 1
     while repetition == -1:
         quotient, remainder = divmod(l*z, q)
-        # choose z_i' among {remainder + j*b : j = -2,-1,0,1}
+        # choose z_i' among {remainder + j*q : j = -2,-1,0,1}
         # first consider z_i' with smaller absolute value
         if 2*remainder > q:
             preference = [0,-1,1,-2] # remainder has smaller absolute value than remainder-q
