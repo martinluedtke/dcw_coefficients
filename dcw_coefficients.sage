@@ -640,7 +640,7 @@ def modified_dcw(l, q, p):
     n = len(zs) - 1
     # have [l] \wedge [q] = 1/(n-m) \sum_{i=m+1}^n f_i
     # where f_i = [l] \wedge [q] + [z_{i-1}] \wedge [q] - [z_i] \wedge [q].
-    # the f_i have an expression in terms of a Steinberg element and wedges of smaller numbers (Eqs. (2.4) and (2.5));
+    # the f_i have an expression in terms of a Steinberg element and wedges of smaller numbers (Eqs. (2.7) and (2.8));
     # we remember only the Steinberg elements and only if they are not in the span of wedges of smaller primes
     for i in range(m+1,n+1):
         if zs[i] % q == 0 or zs[i-1] % 1 == 0:
