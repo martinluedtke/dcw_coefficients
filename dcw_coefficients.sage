@@ -643,12 +643,11 @@ def modified_dcw(l, q, p):
     # the f_i have an expression in terms of a Steinberg element and wedges of smaller numbers (Eqs. (2.7) and (2.8));
     # we remember only the Steinberg elements and only if they are not in the span of wedges of smaller primes
     for i in range(m+1,n+1):
-        if zs[i] % q == 0 or zs[i-1] % 1 == 0:
-            if factor_of_two[i]:
-                new_t = 2*zs[i]/(l*zs[i-1])
-            else:
-                new_t = zs[i]/(l*zs[i-1])
-            yield(new_t if 2*new_t <= 1 else 1-new_t)
+        if factor_of_two[i]:
+            new_t = 2*zs[i]/(l*zs[i-1])
+        else:
+            new_t = zs[i]/(l*zs[i-1])
+        yield(new_t if 2*new_t <= 1 else 1-new_t)
 
 
 
