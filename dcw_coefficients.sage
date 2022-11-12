@@ -468,10 +468,11 @@ def dcw_coefficients(bound, p, decompositions, prec):
 
         sage: bound = 10
         sage: p = 5
-        sage: steinbergs, decompositions = steinberg_decompositions(bound,prec=12)
+        sage: prec = 12
+        sage: steinbergs, decompositions = steinberg_decompositions(bound,p)
         sage: dcw_coeffs = dcw_coefficients(bound, p, decompositions, prec)
         sage: dcw_coeffs[2,7]
-        3*5^2 + 4*5^3 + 4*5^5 + 5^6 + O(5^7)
+        3*5^2 + 4*5^3 + 4*5^5 + 5^6 + O(5^8)
 
     """
 
