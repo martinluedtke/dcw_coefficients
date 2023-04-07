@@ -59,7 +59,7 @@ Observe that none of the numbers contains factors of $p=3$.
 
 ## 2. Computing approximations of DCW coefficients
 
-Using Steinberg decompositions, we can compute p-adic approximations of the DCW coefficients. The function `dcw_coefficients(bound, p, decompositions, prec)` returns a dict `{(l,q}: a}` where a is a p-adic rational number approximating the DCW coefficient $a_{l,q}$. The function uses SAGE's built-in log and dilog functions. The parameter "prec" is the internal precision with which p-adic numbers are represented.
+Using Steinberg decompositions, we can compute p-adic approximations of the DCW coefficients. The function `dcw_coefficients(bound, p, decompositions, prec)` returns a dict `{(l,q): a}` where a is a p-adic rational number approximating the DCW coefficient $a_{l,q}$. The function uses SAGE's built-in log and dilog functions. The parameter "prec" is the internal precision with which p-adic numbers are represented.
 
 ### Example
 ```sage
