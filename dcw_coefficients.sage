@@ -148,7 +148,7 @@ REFERENCES:
 
 - [BBKLMQSX] Alex Best, L. Alexander Betts, Theresa Kumpitsch, Martin Lüdtke,
   Angus William McAndrew, Lie Qian, Elie Studnia, and Yujie Xu, "Refined Selmer
-  equations for the thrice-punctured line in depth two" (v2, 2022)
+  equations for the thrice-punctured line in depth two" (2023)
 
 - [DCW] Ishai Dan-Cohen and Stefan Wewers, "Explicit Chabauty–Kim theory for the
   thrice punctured line in depth 2" (2015)
